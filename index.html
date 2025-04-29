@@ -1,20 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- link -->
-     <link rel="stylesheet" href="./css/style.css">
-
-     <!-- link normalize css -->
-      <link rel="stylesheet" href="./css/normalize.css">
-
-      <!-- link boxIcon -->
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Menu</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+  <header>
+    <div class="container">
+      <div class="content">
+        <div class="logo">Logo</div>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">Bosh Sahifa</a></li>
+            <li><a href="#">Xizmatlar</a></li>
+            <li><a href="#">Biz Haqimizda</a></li>
+            <li><a href="#">Aloqa</a></li>
+            <button class="button">show more</button>
+          </ul>
+        </nav>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-mobile" id="menu-mobile">
+    <div class="close-btn" id="close-btn">&times;</div>
+    <ul>
+      <li><a href="#">Bosh Sahifa</a></li>
+      <li><a href="#">Xizmatlar</a></li>
+      <li><a href="#">Biz Haqimizda</a></li>
+      <li><a href="#">Aloqa</a></li>
+
+      <button class="button">show more</button>
+      
+    </ul>
+  </div>
+
+  <section class="main">
+
+    <div class="container">
+
+      <div class="main__general">
+
+        <div class="main__box">
+          <img src="./img/bmw m3 gtr.jfif" class="main__img">
+          <h2 class="main__title">BMW M3 GTR</h2>
+          <p class="main__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+          <button class="main__btn" id="openBtn1">Kerakli ma'lumot</button>
+        </div>
+
+        <div class="main__box">
+          <img src="./img/bmw m5 f90.jpg" class="main__img">
+          <h2 class="main__title">BMW M5 F90</h2>
+          <p class="main__text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <button class="main__btn" id="openBtn2">Kerakli ma'lumot</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="modal" id="modal1">
+
+      <div class="modal__general">
+
+        <button class="modal__close" id="closeBtn1">x</button>
+
+        <div class="modal__imgBox">
+          <img src="./img/bmw-M3-GTR-NFS-03.jpg" class="modal__img">
+        </div>
+
+        <div class="modal__textBox">
+          <h2 class="modal__title">BMW M3 GTR</h2>
+          <p class="modal__text">BMW M3 modeli - nemis avtomobil ishlab chiqaruvchisi BMW tomonidan 1975- yildan beri ishlab <br> chiqarilgan o'rta toifadagi engil avtomobillarning bir necha avlodi. Ular korpuslarning katta tanlovi, <br> turli xil dvigatellar va sport versiyalarining mavjudligi bilan ajralib turadi. <br> Kompaniya tarixidagi eng muvaffaqiyatli avtomobil seriyasi bo'lgan.</p>
+
+          <a href="https://uz.wikipedia.org/wiki/BMW_3">
+
+            <button class="modal__btn">Ko'proq ma'lumot</button>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="modal" id="modal2">
+
+      <div class="modal__general">
+
+        <button class="modal__close" id="closeBtn2">x</button>
+
+        <div class="modal__imgBox">
+          <img src="./img/bmw m5 f90 2.webp" class="modal__img">
+        </div>
+
+        <div class="modal__textBox">
+          <h2 class="modal__title">BMW M5 F90</h2>
+          <p class="modal__text">BMW M5 super sedanining yangi avlodini taqdim etdi, u birinchi marta elektr motori bilan bozorga chiqmoqda ー XM krossoveridan gibrid o'rnatish yangi mahsulotga moslashtirildi. Quvvatning deyarli 100 ot kuchiga oshishiga qaramay, sedan oldingi avlod M (F90) ga qaraganda kamroq dinamikalik bo'lib chiqdi. Sotuv noyabr oyida boshlanadi, ammo narxlar hozircha faqat AQSh uchun e'lon qilingan ー 119 500 dollardan boshlanadi.</p>
+
+          <a href="https://avtoelon.uz/uz/yangiliklar/articles/yangi-bmw-m5-narxi-va-qanday-kuchga-ega/">
+
+            <button class="modal__btn">Ko'proq ma'lumot</button>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="karusel">
+
+    <div class="container">
+
+      <div class="slider">
+        <div class="slides">
+          <img src="./img/bmw m3 gtr.jfif" class="slide active">
+          <img src="./img/bmw-M3-GTR-NFS-03.jpg" class="slide">
+          <img src="./img/bmw m5 f90.jpg" class="slide">
+          <img src="./img/bmw m5 f90 2.webp" class="slide">
+        </div>
+
+        <button class="prev" id="prev">&#10094</button>
+        <button class="next" id="next">&#10095</button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script src="./index.js"></script>
 </body>
 </html>
