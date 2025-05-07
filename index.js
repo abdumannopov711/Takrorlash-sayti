@@ -1,84 +1,63 @@
-// Menu ochish uchun
-let elMenuOpen = document.getElementById('menu-toggle').addEventListener('click', function() {
-let menu = document.getElementById('menu-mobile');
-    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-  });
-  
-  // Menu yopish uchun
-  document.getElementById('close-btn').addEventListener('click', function() {
-    const menu = document.getElementById('menu-mobile');
-    menu.style.display = 'none';
-  });
+let form = document.querySelector("#formOne");
 
-  // modal oyna_________________________________________________________________________________
+let ismInput = document.querySelector("#nameInput");
+let yoshInput = document.querySelector("#yoshInput");
+let manzilInput = document.querySelector("#manzilInput");
+let kursInput = document.querySelector("#kursInput");
+let kasbInput = document.querySelector("#kasbInput");
 
-let elOpenBtn1 = document.getElementById("openBtn1");
-let elModal1 = document.getElementById("modal1");
-let elCloseBtn1 = document.getElementById("closeBtn1");
+let tbody = document.querySelector("#tbody")
 
-elOpenBtn1.addEventListener("click", function () {
-  elModal1.style.display = "flex"; // birinchi ko‘rsatamiz
-  setTimeout(() => {
-    elModal1.classList.add("show"); // keyin opacity o‘zgaradi
-  }, 10); // biroz kechikish beramiz
+let idVal = 1;
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let ismInputVal = ismInput.value; 
+    let yoshInputVal = yoshInput.value; 
+    let manzilInputVal = manzilInput.value; 
+    let kursInputVal = kursInput.value; 
+    let kasbInputVal = kasbInput.value; 
+
+    let row = document.createElement("tr");
+
+    row.innerHTML = `
+            <th scope="row">${idVal}</th>
+        <td>${ismInputVal}</td>
+        <td>${yoshInputVal}</td>
+        <td>${manzilInputVal}</td>
+        <td>${kursInputVal}</td>
+        <td>${kasbInputVal}</td>
+        <td>
+            <button class="btn btn-warning btn-sm editBtn">Tahrirlash</button>
+            <button class="btn btn-danger btn-sm deleteBtn">O‘chirish</button>
+        </td>
+    `
+
+    ;
+
+    tbody.appendChild(row);
+
+    // Formani tozalash
+    ismInput.value = "";
+    yoshInput.value = "";
+    manzilInput.value = "";
+    kursInput.value = "";
+    kasbInput.value = "";
+    idVal++;
+
+    // O'chirish
+    row.querySelector(".deleteBtn").addEventListener("click", () => {
+        row.remove();
+    });
+
+    // Tahrirlash
+    row.querySelector(".editBtn").addEventListener("click", () => {
+        ismInput.value = row.children[1].textContent;
+        yoshInput.value = row.children[2].textContent;
+        manzilInput.value = row.children[3].textContent;
+        kursInput.value = row.children[4].textContent;
+        kasbInput.value = row.children[5].textContent;
+        row.remove();
+    });
 });
-
-elCloseBtn1.addEventListener("click", function () {
-  elModal1.classList.remove("show"); // opacity 0 bo‘ladi
-  setTimeout(() => {
-    elModal1.style.display = "none"; // keyin yo‘q qilamiz
-  }, 400); // animatsiya tugashi bilan (CSS dagi 0.4s)
-});
-
-
-let elOpenBtn2 = document.getElementById("openBtn2");
-let elModal2 = document.getElementById("modal2");
-let elCloseBtn2 = document.getElementById("closeBtn2");
-
-elOpenBtn2.addEventListener("click", function () {
-  elModal2.style.display = "flex"; // birinchi ko‘rsatamiz
-  setTimeout(() => {
-    elModal2.classList.add("show"); // keyin opacity o‘zgaradi
-  }, 10); // biroz kechikish beramiz
-});
-
-elCloseBtn2.addEventListener("click", function () {
-  elModal2.classList.remove("show"); // opacity 0 bo‘ladi
-  setTimeout(() => {
-    elModal2.style.display = "none"; // keyin yo‘q qilamiz
-  }, 400); // animatsiya tugashi bilan (CSS dagi 0.4s)
-});
-
-  // slide_______________________________________________________________________________________________
-
-let prevBtn = document.querySelector(".prev");
-let nextBtn = document.querySelector(".next");
-let slides = document.querySelectorAll(".slide");
-
-let currenSlide = 0;
-
-function showSlide(index) {
-  if (index < 0) {
-    currenSlide = slides.length - 1;
-  }
-  else if (index >= slides.length) {
-    currenSlide = 0;
-  }
-  else {
-    currenSlide = index;
-  }
-
-  slides.forEach(slide => slide.classList.remove("active"));
-  slides[currenSlide].classList.add("active");
-} 
-
-
-prevBtn.addEventListener("click", function() {
-  showSlide(currenSlide - 1);
-});
-
-nextBtn.addEventListener("click", function() {
-  showSlide(currenSlide + 1);
-});
-
-showSlide(currenSlide);
